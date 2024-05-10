@@ -32,6 +32,6 @@ public class GameView implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        ViewUtils.setTextTurn(text);
+        ViewUtils.setTextGame(text);
     }
 }

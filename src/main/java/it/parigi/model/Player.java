@@ -1,5 +1,4 @@
 package it.parigi.model;
-
 public class Player {
     private String name;
     private Character sign;

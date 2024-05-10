@@ -13,15 +13,26 @@ public class ViewUtils {
         Player p = Game.getPlayerTurn();
         Integer x = GridPane.getRowIndex(b);
         Integer y = GridPane.getColumnIndex(b);
-        if (Game.turn(p, x, y) == 1) {
-            b.setText(String.valueOf(p.getSign()));
-            ViewUtils.setTextTurn(text);
-        } else {
-            text.setText(p.getName() + ": mossa non valida! Riprova");
+        switch (Game.turn(p, x, y)) {
+            case 1:
+                b.setText(String.valueOf(p.getSign()));
+                ViewUtils.setTextGame(text);
+                break;
+            case 2:
+                /* Da continuare */
+                ViewUtils.setTextGame(text, ": congratulazioni, HAI VINTO!");
+                break;
+            case -1:
+                ViewUtils.setTextGame(text, ": mossa non valida! Riprova");
+                break;
         }
     }
 
-    public static void setTextTurn(Label text) {
+    public static void setTextGame(Label text, String s) {
+        text.setText(Game.getPlayerTurn().getName() + s);
+    }
+
+    public static void setTextGame(Label text) {
         text.setText(Game.getPlayerTurn().getName() + ": è il tuo turno!");
     }
 }

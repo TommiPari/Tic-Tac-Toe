@@ -31,7 +31,11 @@ public class Game {
         if (Game.isPlaceable(x, y)) {
             Game.setMove(p, x, y);
             Game.changeTurn();
-            return 1;
+            if (Game.checkWin(p.getSign())) {
+                return 2;
+            } else {
+                return 1;
+            }
         } else {
             return -1;
         }
@@ -55,5 +59,20 @@ public class Game {
                 field[i][j] = null;
             }
         }
+    }
+
+    public static boolean checkWin(Character sign) {
+        if ((field[0][0].equals(sign) && field[0][1].equals(sign) && field[0][2].equals(sign)) ||
+            (field[0][0].equals(sign) && field[1][0].equals(sign) && field[2][0].equals(sign)))
+            return true;
+        if ((field[1][0].equals(sign) && field[1][1].equals(sign) && field[1][2].equals(sign)) ||
+            (field[0][1].equals(sign) && field[1][1].equals(sign) && field[2][1].equals(sign)) ||
+            (field[0][0].equals(sign) && field[1][1].equals(sign) && field[2][2].equals(sign)) ||
+            (field[0][2].equals(sign) && field[1][1].equals(sign) && field[2][0].equals(sign)))
+            return true;
+        if ((field[0][2].equals(sign) && field[1][2].equals(sign) && field[2][2].equals(sign)) ||
+            (field[2][0].equals(sign) && field[2][1].equals(sign) && field[2][2].equals(sign)))
+            return true;
+        return false;
     }
 }

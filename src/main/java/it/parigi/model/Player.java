@@ -10,7 +10,7 @@ public class Player {
 
     public String getName() {
         if (name == null || name == "") {
-            return "Player";
+            return "Player" + sign;
         } else {
             return name;
         }

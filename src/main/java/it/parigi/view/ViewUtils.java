@@ -19,7 +19,8 @@ public class ViewUtils {
                 ViewUtils.setTextGame(text);
                 break;
             case 2:
-                /* Da continuare */
+                b.setText(String.valueOf(p.getSign()));
+                grid.setDisable(true);
                 ViewUtils.setTextGame(text, ": congratulazioni, HAI VINTO!");
                 break;
             case -1:

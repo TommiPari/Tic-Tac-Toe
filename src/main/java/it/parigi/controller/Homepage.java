@@ -28,6 +28,7 @@ public class Homepage {
     private void play(ActionEvent e) throws IOException {
         Game.setP1(new Player(p1.getText(), 'X'));
         Game.setP2(new Player(p2.getText(), 'O'));
+        Game.restartGame();
         App.setRoot("gameview");
     }
 }

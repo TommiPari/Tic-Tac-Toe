@@ -30,10 +30,10 @@ public class Game {
     public static Integer turn(Player p, Integer x, Integer y) {
         if (Game.isPlaceable(x, y)) {
             Game.setMove(p, x, y);
-            Game.changeTurn();
             if (Game.checkWin(p.getSign())) {
                 return 2;
             } else {
+                Game.changeTurn();
                 return 1;
             }
         } else {
@@ -42,7 +42,7 @@ public class Game {
     }
 
     public static boolean isPlaceable(Integer x, Integer y) {
-        return field[x][y] == null;
+        return field[x][y] == '-';
     }
 
     public static void setMove(Player p, Integer x, Integer y) {
@@ -56,7 +56,7 @@ public class Game {
     public static void restartGame() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                field[i][j] = null;
+                field[i][j] = '-';
             }
         }
     }
